@@ -1,0 +1,193 @@
+
+body {
+  background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+  color: darkslategray;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  margin: 20px auto;
+  color: black;
+}
+
+/* 🔍 Input & Select Section */
+.search-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 20px auto;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.search-section label {
+  font-size: 1.1rem;
+  color: black;
+}
+
+.search-section select,
+input {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: 2px solid rgb(214, 207, 210);
+  background-color: black;
+  color: white;
+  max-width: 300px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.search-section select:hover,
+input:hover {
+  background-color: rgb(196, 177, 184);
+  color: black;
+}
+
+/* 🔘 Button Styling */
+button,
+.glow-button {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 2px solid rgb(163, 91, 118);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+button:hover,
+.glow-button:hover {
+  background-color: rgb(240, 195, 212);
+  color: black;
+  transform: scale(1.05);
+}
+
+/* 💫 Glow Animation */
+.glow-button::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ff0077, #000000, #194f5d, #6c2144);
+  background-size: 300% 300%;
+  animation: lights 10s linear infinite;
+  z-index: -1;
+}
+
+@keyframes lights {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* 🗺️ Map Styling */
+#map {
+  height: 100vh;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  input,
+  button {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #map {
+    height: 50vh;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.6em;
+  }
+
+  #map {
+    height: 40vh;
+    max-width: 100%;
+  }
+}
+
+/* ✅ Utility Elements */
+#status {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 10px auto;
+  max-width: 800px;
+}
+
+#distance {
+  text-align: center;
+  font-size: 1rem;
+  color: #003344;
+  margin: 5px auto;
+}
+
+#instructionList {
+  list-style: disc;
+  font-size: 0.95rem;
+  margin: 10px auto;
+  padding-left: 30px;
+  max-width: 800px;
+  color: #222;
+}
+
+
+button.stop-button {
+  background-color: darkred;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px auto;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+button.stop-button:hover {
+  background-color: crimson;
+}
+
+.leaflet-routing-container {
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  font-family: Arial, sans-serif;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.leaflet-routing-container b {
+  color: #ff0077;
+}
