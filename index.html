@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dhebar City Map</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  <script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script> <!-- for live location -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <h1>Dhebar City Map</h1>
+
+  <div class="search-section">
+    <label for="startPoint">Choose your starting point:</label>
+    <select id="startPoint">
+      <option value="main_gate">Dhebar City Main Gate</option>
+      <option value="back_gate">Dhebar City Back Gate</option>
+      <option value="current_location">Use My Current Location</option>
+      <option value="nayak_ji">Nayak Ji</option>
+    </select>
+
+    <input type="text" id="search" placeholder="Search Plot Number (e.g., B-10/17)" />
+
+    <button class="glow-button" onclick="startRoute()">Set Route</button>
+    <button class="glow-button" onclick="toggleVoice()">Toggle Voice: <span id="voiceStatus">On</span></button>
+    <button class="glow-button" onclick="cleanupTracking()">Reset Route</button>
+    <button class="glow-button" onclick="speak('Testing voice synthesis')">Test Voice</button>
+  </div>
+
+  <div id="status" style="margin: 10px 0; font-weight: bold; color: green;"></div>
+  <div id="distance" style="margin: 5px 0; font-size: 14px;"></div>
+  <ul id="instructionList" style="padding-left: 20px; font-size: 14px;"></ul>
+  
+  <button onclick="stopNavigation()" class="stop-button">🛑 Stop Navigation</button>
+
+  <div id="map" style="height: 500px; margin-top: 20px;" aria-label="Interactive map view"></div>
+
+
+  <div id="liveTrackingStatus" style="text-align: center; margin-top: 10px;"></div>
+
+
+  <footer style="margin-top: 30px;">
+    <p>© 2025 Dhebar City Map. Created by Mridul Nayak</p>
+    <p>Contact: <a href="mailto:mridul122005@gmail.com">mridul122005@gmail.com</a></p>
+  </footer>
+</body>
+</html>
